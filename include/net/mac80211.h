@@ -753,6 +753,7 @@ struct ieee80211_bss_conf {
 	u8 tx_pwr_env_num;
 	u8 pwr_reduction;
 	bool eht_support;
+	bool he_ofdma_disable; /* Ask driver to disable OFDMA */
 	u16 eht_puncturing;
 
 	bool csa_active;
@@ -1813,6 +1814,7 @@ struct ieee80211_vif_cfg {
 	bool assoc, ibss_joined;
 	bool ibss_creator;
 	bool ps;
+	bool he_ofdma_disable; /* Ask driver to disable OFDMA */
 	u16 aid;
 
 	__be32 arp_addr_list[IEEE80211_BSS_ARP_ADDR_LIST_LEN];
@@ -2271,6 +2273,7 @@ enum ieee80211_conn_flags {
 	IEEE80211_CONN_DISABLE_EHT	= (__force ieee80211_conn_flags_t)BIT(6),
 	IEEE80211_CONN_DISABLE_320MHZ	= (__force ieee80211_conn_flags_t)BIT(7),
 	IEEE80211_CONN_DISABLE_TWT      = (__force ieee80211_conn_flags_t)BIT(8),
+	IEEE80211_CONN_DISABLE_OFDMA	= (__force ieee80211_conn_flags_t)BIT(9),
 };
 
 /**
